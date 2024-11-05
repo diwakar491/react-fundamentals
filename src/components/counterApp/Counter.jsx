@@ -1,45 +1,32 @@
 import { useState } from 'react';
-import { PropTypes } from 'prop-types';
+import CounterButton from './CounterButton';
 import './Counter.css';
 
-export default function Counter({by}){
+export default function Counter(){
 
-    const [count, setCount] = useState(0); // deconstructing the array
-    function incrementCounterFunction(){
-        setCount(count + by);
+    const [count, setCount] = useState(0);
+
+    function incrementCounterParentFunction(by){
+        setCount(count + by)
     }
 
-    function decrementCounterFunction(){
-        setCount(count - by);
+    function decrementCounterParentFunction(by){
+        setCount(count - by)
     }
 
-     
-    return(
-        <div className="Counter">
-            
-            <span className="count">{count}</span>
-            <div>
-            <button className="counterButton" 
-                    onClick={incrementCounterFunction}
-            >+{by}</button>
 
-            <button className="counterButton" 
-                    onClick={decrementCounterFunction}
-            >-{by}</button>
-            </div>
-        </div>
+    return (
+        <>
+            <span className="totalCount">{count}</span>
+            <CounterButton by={1}
+                incrementMethod = {incrementCounterParentFunction} 
+                decrementMethod = {decrementCounterParentFunction}/>
+            <CounterButton by={2} 
+                incrementMethod = {incrementCounterParentFunction}
+                decrementMethod = {decrementCounterParentFunction}/>
+            <CounterButton by={5} 
+                incrementMethod = {incrementCounterParentFunction}
+                decrementMethod = {decrementCounterParentFunction}/>
+        </>
     )
 }
-
-//Defined constraints on type of a property
-Counter.propTypes = {
-    by : PropTypes.number
-}
-
-//Set default values for the property
-Counter.defaultProps = {
-    by : 1
-}
-
-
-
