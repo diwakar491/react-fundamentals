@@ -21,15 +21,13 @@
     border-color: black;
     border-width: 5px;
 }
+
 .count {
     font-size: 50px;
     padding: 20px;
-
 }
 
 .totalCount{
     color: #00a5ab;
     font-size: 150px;
-
-
 }
