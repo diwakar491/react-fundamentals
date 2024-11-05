@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import './Counter.css';
+
 export default function Counter({by}){
 
     const [count, setCount] = useState(0); // deconstructing the array
-
     function incrementCounterFunction(){
         setCount(count + by);
     }
@@ -30,5 +30,16 @@ export default function Counter({by}){
         </div>
     )
 }
+
+//Defined constraints on type of a property
+Counter.propTypes = {
+    by : PropTypes.number
+}
+
+//Set default values for the property
+Counter.defaultProps = {
+    by : 1
+}
+
 
 
